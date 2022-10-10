@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using MeanTime.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace MeanTime.Data
@@ -9,5 +10,8 @@ namespace MeanTime.Data
             : base(options)
         {
         }
+        public DbSet<App>? Apps { get; set; }
+        public DbSet<Genre>? Genres { get; set; }
+        public DbSet<AppDetail>? AppDetails { get; set; }
     }
 }

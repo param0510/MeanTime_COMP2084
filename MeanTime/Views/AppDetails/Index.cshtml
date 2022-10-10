@@ -1,0 +1,85 @@
+﻿@model IEnumerable<MeanTime.Models.AppDetail>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.App)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Owner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Duration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalDataUsage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AvgMemoryUsage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Downloads)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InstallDate)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.App.Name)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Owner)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalDataUsage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvgMemoryUsage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Downloads)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InstallDate)
+            </td>
+            
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.AppId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.AppId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.AppId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

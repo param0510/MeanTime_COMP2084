@@ -1,0 +1,72 @@
+﻿@model MeanTime.Models.AppDetail
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>AppDetail</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AppId" class="control-label"></label>
+                <select asp-for="AppId" class ="form-control" asp-items="ViewBag.AppId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Owner" class="control-label"></label>
+                <input asp-for="Owner" class="form-control" />
+                <span asp-validation-for="Owner" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mode" class="control-label"></label>
+                <input asp-for="Mode" class="form-control" />
+                <span asp-validation-for="Mode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Duration" class="control-label"></label>
+                <input asp-for="Duration" class="form-control" />
+                <span asp-validation-for="Duration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalDataUsage" class="control-label"></label>
+                <input asp-for="TotalDataUsage" class="form-control" />
+                <span asp-validation-for="TotalDataUsage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AvgMemoryUsage" class="control-label"></label>
+                <input asp-for="AvgMemoryUsage" class="form-control" />
+                <span asp-validation-for="AvgMemoryUsage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Downloads" class="control-label"></label>
+                <input asp-for="Downloads" class="form-control" />
+                <span asp-validation-for="Downloads" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InstallDate" class="control-label"></label>
+                <input asp-for="InstallDate" type="date" class="form-control" />
+                <span asp-validation-for="InstallDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
