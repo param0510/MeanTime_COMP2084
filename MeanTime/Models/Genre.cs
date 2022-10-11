@@ -15,25 +15,11 @@ namespace MeanTime.Models
         [MinLength(8, ErrorMessage ="Too short a meta description for the genre, keep it more than 8 characters")]
         [MaxLength(90, ErrorMessage ="Too long a meta description for the genre, kindly bring it lower than 90 characters")]
         public string? MetaDescription { get; set; }
+
+        public string? Logo { get; set; }
+
         // Ref to child table
         public List<App>? Apps { get; set; }
 
-        //public int totalApps;
-        //public int TotalApps
-        //{
-        //    get { return totalApps; }
-        //    set 
-        //    { 
-        //        if(Apps == null)
-        //        {
-        //            totalApps = 0;
-        //        }
-        //        else
-        //        {
-        //            totalApps = Apps.Count;
-        //        }
-
-        //    }
-        //}
     }
 }

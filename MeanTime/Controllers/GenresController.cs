@@ -54,8 +54,13 @@ namespace MeanTime.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("GenreId,Type,MetaDescription")] Genre genre)
+        public async Task<IActionResult> Create([Bind("GenreId,Type,MetaDescription")] Genre genre, IFormFile? Logo)
         {
+            if(Logo != null)
+            {
+                var fileName = UtilityClass.UploadImage(Logo);
+                genre.Logo = fileName;
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(genre);
@@ -86,8 +91,15 @@ namespace MeanTime.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("GenreId,Type,MetaDescription")] Genre genre)
+        public async Task<IActionResult> Edit(int id, [Bind("GenreId,Type,MetaDescription,Logo")] Genre genre, IFormFile? Logo)
         {
+            var oldGenre = await _context.Genres.FindAsync(id);
+            genre.Logo = oldGenre.Logo;
+            if (Logo != null)
+            {
+                var fileName = UtilityClass.UploadImage(Logo);
+                genre.Logo = fileName;
+            }
             if (id != genre.GenreId)
             {
                 return NotFound();

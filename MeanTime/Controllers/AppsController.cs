@@ -20,10 +20,20 @@ namespace MeanTime.Controllers
         }
 
         // GET: Apps
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string genre)
         {
             var applicationDbContext = _context.Apps.Include(a => a.Genre);
-            return View(await applicationDbContext.ToListAsync());
+
+            if (string.IsNullOrEmpty(genre))
+            {
+                //RedirectToAction("Index");
+                return View(await applicationDbContext.ToListAsync());
+            }
+            else
+            {
+                return View(await applicationDbContext.Where(a => a.Genre.Type.Equals(genre)).ToListAsync());
+            }
+
         }
 
         // GET: Apps/Details/5

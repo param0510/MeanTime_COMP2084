@@ -16,3 +16,8 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.thumb{
+    width: 150px;
+    /*height: 170px;*/
+}
