@@ -91,10 +91,12 @@ namespace MeanTime.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("GenreId,Type,MetaDescription,Logo")] Genre genre, IFormFile? Logo)
+        public async Task<IActionResult> Edit(int id, [Bind("GenreId,Type,MetaDescription")] Genre genre, IFormFile? Logo, string oldImage)
         {
-            var oldGenre = await _context.Genres.FindAsync(id);
-            genre.Logo = oldGenre.Logo;
+            //var oldGenre = await _context.Genres.FirstOrDefaultAsync(m => m.GenreId == id);
+            //genre.Logo = oldGenre.Logo;
+
+            genre.Logo = oldImage;
             if (Logo != null)
             {
                 var fileName = UtilityClass.UploadImage(Logo);

@@ -46,7 +46,16 @@
                 <a asp-controller="AppDetails" asp-action="Details" asp-route-id=@item.AppId>@Html.DisplayFor(modelItem => item.Name)</a>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Image)
+                @if(item.Image != null)
+                {
+                    <img src="~/img/@item.Image" alt="App Image" class="thumb" >
+                }
+                else
+                {
+                        <img src="~/img/placeholder.png" alt="App Image" class="thumb">
+
+                }
+                @*@Html.DisplayFor(modelItem => item.Image)*@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Price)

@@ -33,24 +33,20 @@
             <td>
                 @if(item.Logo != null)
                 {
-                    <img src="~/img/genres/@item.Logo" alt="Genre logo" class="thumb"/>
+                    <img src="~/img/@item.Logo" alt="Genre logo" class="thumb"/>
                 }
                 else
                 {
-                    @*<img src="~/img/placeholder.png" alt="Placeholder image" class="thumb"/>*@
+                    <img src="~/img/placeholder.png" alt="Placeholder image" class="thumb"/>
                 }
-                @Html.DisplayFor(modelItem => item.Logo)
+                @*@Html.DisplayFor(modelItem => item.Logo)*@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MetaDescription)
             </td>
             
             <td>
-               @* @if(item.Logo != null)
-                {*@
-                    <a asp-action="Edit" asp-route-id="@item.GenreId">Edit</a>
-                @*}*@
-                 |
+                <a asp-action="Edit" asp-route-id="@item.GenreId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.GenreId">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.GenreId">Delete</a>
             </td>

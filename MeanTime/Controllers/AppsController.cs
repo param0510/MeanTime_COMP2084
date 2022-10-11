@@ -67,13 +67,19 @@ namespace MeanTime.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AppId,Name,Image,Price,Size,MetaTag,Rating,Status,GenreId")] App app)
+        public async Task<IActionResult> Create([Bind("AppId,Name,Price,Size,MetaTag,Rating,Status,GenreId")] App app, IFormFile? Image)
         {
+            if(Image != null)
+            {
+                var fileName = UtilityClass.UploadImage(Image);
+                app.Image = fileName;
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(app);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(Index));
+                return RedirectToAction("Create", "AppDetails");
             }
             ViewData["GenreId"] = new SelectList(_context.Genres, "GenreId", "Type", app.GenreId);
             return View(app);
@@ -101,8 +107,14 @@ namespace MeanTime.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AppId,Name,Image,Price,Size,MetaTag,Rating,Status,GenreId")] App app)
+        public async Task<IActionResult> Edit(int id, [Bind("AppId,Name,Price,Size,MetaTag,Rating,Status,GenreId")] App app, IFormFile? Image, string? OldImage)
         {
+            app.Image = OldImage;
+            if(Image != null)
+            {
+                var fileName = UtilityClass.UploadImage(Image);
+                app.Image = fileName;
+            }
             if (id != app.AppId)
             {
                 return NotFound();

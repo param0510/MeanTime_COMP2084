@@ -39,7 +39,8 @@ namespace MeanTime.Controllers
                 .FirstOrDefaultAsync(m => m.AppId == id);
             if (appDetail == null)
             {
-                return NotFound();
+                return RedirectToAction("Create");
+                //return NotFound();
             }
 
             return View(appDetail);
@@ -48,7 +49,7 @@ namespace MeanTime.Controllers
         // GET: AppDetails/Create
         public IActionResult Create()
         {
-            ViewData["AppId"] = new SelectList(_context.Apps, "AppId", "Name");
+            ViewData["AppId"] = new SelectList(_context.Apps.OrderByDescending(a => a.AppId), "AppId", "Name");
             return View();
         }
 
@@ -63,7 +64,8 @@ namespace MeanTime.Controllers
             {
                 _context.Add(appDetail);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Apps");
             }
             ViewData["AppId"] = new SelectList(_context.Apps, "AppId", "Name", appDetail.AppId);
             return View(appDetail);

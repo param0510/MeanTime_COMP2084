@@ -12,7 +12,7 @@
             var fileName = Guid.NewGuid().ToString() + "-" + Image.FileName;
 
             // dynamically setting up the destination path for the image to be uploaded
-            var uploadPath = System.IO.Directory.GetCurrentDirectory() + "\\wwwroot\\img\\genres\\" + fileName;
+            var uploadPath = System.IO.Directory.GetCurrentDirectory() + "\\wwwroot\\img\\" + fileName;
 
             // upload the file to the server using filestream
             using(var stream = new FileStream(uploadPath, FileMode.Create))
