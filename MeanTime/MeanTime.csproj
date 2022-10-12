@@ -22,7 +22,6 @@
   <ItemGroup>
     <Folder Include="wwwroot\img\genres\" />
     <Folder Include="wwwroot\img\apps\" />
-    <Folder Include="wwwroot\img\logo\" />
   </ItemGroup>
 
 </Project>

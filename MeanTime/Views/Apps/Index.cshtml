@@ -1,15 +1,17 @@
-﻿@model IEnumerable<MeanTime.Models.App>
+﻿@*Template taken from the following site: https://bbbootstrap.com/snippets/bootstrap-list-grid-view-template-74271163#*@
+
+@model IEnumerable<MeanTime.Models.App>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Apps";
 }
 
-<h1>Index</h1>
+<h1 class="mt-3">Apps Catalogue</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="text-secondary rounded-pill border-primary border-1">Create New</a>
 </p>
-<table class="table">
+@*<table class="table">
     <thead>
         <tr>
             <th>
@@ -54,9 +56,9 @@
                 {
                         <img src="~/img/placeholder.png" alt="App Image" class="thumb">
 
-                }
+                }*@
                 @*@Html.DisplayFor(modelItem => item.Image)*@
-            </td>
+          @*  </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
@@ -84,3 +86,101 @@
 }
     </tbody>
 </table>
+*@
+
+<div class="container mt-3 mb-5">
+    <div class="row">
+    @foreach(var item in Model)
+    {
+
+        <div class="col-md-4">
+            <div class="card p-3">
+
+                <div class="d-flex flex-row mb-3">
+                        <a asp-controller="AppDetails" asp-action="Details" asp-route-id="@item.AppId">
+                        @if (item.Image != null)
+                        {
+                            <img src="~/img/@item.Image" alt="App Image" width="70">
+                        }
+                        else
+                        {
+                                <img src="~/img/placeholder.png" alt="App Image" width="70">
+
+                        }
+                    </a>
+                    <div class="d-flex flex-column ml-2">
+                        <a asp-controller="AppDetails" asp-action="Details" asp-route-id="@item.AppId">
+                                <span class="text-black">@Html.DisplayFor(modelItem => item.Name)</span>
+                        </a>
+                            <span class="text-black-50">@Html.DisplayFor(modelItem => item.MetaTag)</span>
+                        <span class="ratings">
+                            @if(item.Rating == 0)
+                            {
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <i class="fa fa-star-o"></i>
+                            }
+                            else
+                            {
+                                var rating = Math.Floor(item.Rating);
+                                @if (rating != item.Rating && rating == 0)
+                                {
+                                    <i class="fa fa-star-half-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                }
+                                else
+                                {
+
+                                    for (var i = 1; i <= rating; i++)
+                                    {
+                                        <i class="fa fa-star"></i>
+                                    }
+                                    if (rating != item.Rating)
+                                    {
+                                        <i class="fa fa-star-half-o"></i>
+                                    }
+                                    else
+                                    {
+                                        <i class="fa fa-star-o"></i>
+                                    }
+                                    for (var j = rating + 1; j < 5; j++)
+                                    {
+                                        <i class="fa fa-star-o"></i>
+                                    }
+                                }
+                            }
+
+@*                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>*@
+                        </span>
+                    </div>
+                    <div class="align-self-top ">
+                        <a asp-action="Delete" asp-route-id="@item.AppId" class="float-right btn btn-close" ></a>
+                    </div>
+                </div>
+
+                    <h6>@Html.DisplayFor(modelItem => item.Size)</h6>
+
+                <div class="d-flex justify-content-between install mt-3">
+                    <!-- <span>Installed </span> -->
+                    <a asp-controller="AppDetails" asp-action="Details" asp-route-id="@item.AppId">
+                        <span class="text-primary">View Details&nbsp;<i class="fa fa-angle-right"></i></span>
+                    </a>
+                    <a asp-action="Edit" asp-route-id="@item.AppId">
+                        <span class="text-primary">Install/Uninstall&nbsp;<i class="fa fa-angle-right"></i></span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        }
+    </div>
+</div>

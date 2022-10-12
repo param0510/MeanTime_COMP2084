@@ -1,4 +1,6 @@
-﻿@model MeanTime.Models.AppDetail
+﻿@*Template taken from: https://www.bootdey.com/snippets/view/profile-with-data-and-skills#html*@
+
+@model MeanTime.Models.AppDetail
 
 @{
     ViewData["Title"] = "Details";
@@ -6,10 +8,25 @@
 
 <h1>Details</h1>
 
-<div>
+@*<div>
     <h4>AppDetail</h4>
     <hr />
-    <dl class="row">
+    <dl class="row">*@
+
+        @*Trial wanted to check whether it can do it or not*@
+
+      @*  <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.App.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.App.Price)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.App)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.App.Name)
+        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Owner)
         </dt>
@@ -58,15 +75,151 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.InstallDate)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.App)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.App.Name)
-        </dd>
     </dl>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.AppId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" asp-controller="Apps">Back to Apps</a>
 </div>
+*@
+
+<div class="container">
+    <div class="main-body">
+
+        <!-- Check the use of this once -->
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="main-breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a asp-controller="Genres" asp-action="Index">Genres</a></li>
+                <li class="breadcrumb-item"><a asp-controller="Apps" asp-action="Index">Apps</a></li>
+                <li class="breadcrumb-item active" aria-current="page">App profile</li>
+            </ol>
+        </nav>
+        <!-- /Breadcrumb -->
+
+        <div class="row gutters-sm">
+            <div class="col-md-4 mb-3 mt-0">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <img src="~/img/@Model.App.Image" alt="App logo" class="rounded-circle" width="150">
+                            <div class="mt-3">
+                                <h4>@Html.DisplayFor(model => model.App.Name)</h4>
+                                <p class="text-secondary mb-3">@Html.DisplayFor(model => model.App.MetaTag)</p>
+                                @*<p class="text-muted font-size-sm">@Html.DisplayFor(model => model.)</p>*@
+                                <p class="text-muted font-size-sm">Connect with friends, share what you’re up to, or see what's new from others all over the world. Explore our community where you can feel free to be yourself and share everything from your daily moments to life's highlights.</p>
+                                    <a asp-controller="Apps" asp-action="Edit" asp-route-id=@Model.AppId class="btn btn-primary">Install/Uninstall</a>
+                                    <a asp-controller="Apps" asp-action="Delete" asp-route-id=@Model.AppId class="btn btn-outline-primary">Delete App</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-8">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0 font-weight-bold">@Html.DisplayNameFor(model => model.App.Name)</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @Html.DisplayFor(model => model.App.Name)
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0 font-weight-bold">@Html.DisplayNameFor(model => model.App.Price)</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @Html.DisplayFor(model => model.App.Price)
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0 font-weight-bold">@Html.DisplayNameFor(model => model.App.Size)</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @Html.DisplayFor(model => model.App.Size)
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0 font-weight-bold">@Html.DisplayNameFor(model => model.App.Status)</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @Html.DisplayFor(model => model.App.Status)
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0 font-weight-bold">@Html.DisplayNameFor(model => model.Mode)</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @Html.DisplayFor(model => model.Mode)
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0 font-weight-bold">@Html.DisplayNameFor(model => model.InstallDate)</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @Html.DisplayFor(model => model.InstallDate)
+                            </div>
+                        </div>
+                        @*<hr>*@
+
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <a class="btn btn-info " asp-action="Edit" asp-route-id=@Model.AppId>Edit</a>
+                                <a class="btn btn-info " asp-controller="Apps" asp-action="Index">Back to Apps</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="counter mt-2">
+            <div class="row">
+                <div class="col-6 col-lg-3">
+                    <div class="count-data text-center">
+                        <h6 class="count h2" data-to="500" data-speed="500">@Html.DisplayFor(model => model.Duration)</h6>
+                        <p class="m-0px font-w-600">@Html.DisplayNameFor(model => model.Duration)</p>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="count-data text-center">
+                        <h6 class="count h2" data-to="150" data-speed="150">@Html.DisplayFor(model => model.TotalDataUsage)</h6>
+                        <p class="m-0px font-w-600">@Html.DisplayNameFor(model => model.TotalDataUsage)</p>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="count-data text-center">
+                        <h6 class="count h2" data-to="850" data-speed="850">@Html.DisplayFor(model => model.AvgMemoryUsage)</h6>
+                        <p class="m-0px font-w-600">@Html.DisplayNameFor(model => model.AvgMemoryUsage)</p>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="count-data text-center">
+                        <h6 class="count h2" data-to="190" data-speed="190">@Html.DisplayFor(model => model.Downloads)</h6>
+                        <p class="m-0px font-w-600">@Html.DisplayNameFor(model => model.Downloads)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

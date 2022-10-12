@@ -1,0 +1,54 @@
+﻿@*
+    Link to the template inspiration - https://bootstrapious.com/p/bootstrap-image-hover
+*@
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+
+<div class="container py-5">
+    <!-- For Demo Purpose -->
+    <!-- DEMO 3 -->
+    <div class="py-5">
+        <div class="row ">
+            <!-- DEMO 3 Item-->
+            <div class="col-lg-6 mb-3 mb-lg-0">
+                <a asp-controller="Genres" asp-action="Index">
+                <div class="hover hover-3 text-white rounded">
+                        <img src="~/img/background/Genres-background.webp" alt="Background image">
+                    <div class="hover-overlay"></div>
+                    <div class="hover-3-content px-5 py-4">
+                        <h3 class="hover-3-title text-uppercase font-weight-bold mb-1">
+                            <span class="font-weight-light">View </span>Genres
+                        </h3>
+                        <p class="hover-3-description small text-uppercase mb-0">
+                            Wanna checkout the genres first?
+                            <br>Let's have a look then.
+                        </p>
+                    </div>
+                </div>
+                </a>
+            </div>
+            <!-- DEMO 3 Item    -->
+            <div class="col-lg-6">
+                <a asp-controller="Apps" asp-action="Index">
+
+                <div class="hover hover-3 text-white rounded">
+                        <img src="~/img/background/apps-background.webp" alt="Background image">
+                    <div class="hover-overlay"></div>
+                    <div class="hover-3-content px-5 py-4">
+                        <h3 class="hover-3-title text-uppercase font-weight-bold mb-1">
+                            <span class="font-weight-light">View </span>Apps
+                        </h3>
+                        <p class="hover-3-description small text-uppercase mb-0">
+                            Have a look at all the apps
+                            <br>They are waiting for you!
+                        </p>
+                    </div>
+                </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>

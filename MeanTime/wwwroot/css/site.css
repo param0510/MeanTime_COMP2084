@@ -21,3 +21,25 @@ body {
     width: 150px;
     /*height: 170px;*/
 }
+.renderBody{
+    min-height: 80vh;
+}
+/* Default height for small devices */
+#intro-example {
+    height: 400px;
+}
+
+/* Height for devices larger than 992px */
+@media (min-width: 992px) {
+    #intro-example {
+        height: 800px;
+    }
+}
+
+.bg-image {
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/*Css for genre view*/
+
