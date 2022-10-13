@@ -6,7 +6,7 @@
     ViewData["Title"] = "Details";
 }
 
-<h1 class="text-white">Details</h1>
+<h1 class="headtag">Details</h1>
 
 
 @*<div>
@@ -116,8 +116,8 @@
                                 <p class="text-secondary mb-3">@Html.DisplayFor(model => model.App.MetaTag)</p>
                                 @*<p class="text-muted font-size-sm">@Html.DisplayFor(model => model.App.GenreId.)</p>*@
                                 <p class="text-muted font-size-sm">@Html.DisplayFor(model => model.Description)</p>
-                                    <a asp-controller="Apps" asp-action="Edit" asp-route-id=@Model.AppId class="btn btn-primary m-2">Install/Uninstall</a>
-                                    <a asp-controller="Apps" asp-action="Delete" asp-route-id=@Model.AppId class="btn btn-outline-primary m-2">Delete App</a>
+                                    <a asp-controller="Apps" asp-action="Edit" asp-route-id=@Model.AppId class="btn btn-outline-secondary m-2">Install/Uninstall</a>
+                                    <a asp-controller="Apps" asp-action="Delete" asp-route-id=@Model.AppId class="btn btn-outline-danger m-2">Delete App</a>
                             </div>
                         </div>
                     </div>
@@ -195,7 +195,7 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <a class="btn btn-info " asp-action="Edit" asp-route-id=@Model.AppId>Edit</a>
-                                <a class="btn btn-info " asp-controller="Apps" asp-action="Index">Back to Apps</a>
+                                <a class="btn btn-outline-info " asp-controller="Apps" asp-action="Index">Back to Apps</a>
                             </div>
                         </div>
                     </div>
@@ -205,7 +205,7 @@
         </div>
 
 
-        <div class="counter mt-2 text-white">
+        <div class="counter mt-2 headtag">
             <div class="row">
                 <div class="col-6 col-lg-3">
                     <div class="count-data text-center">
@@ -213,15 +213,48 @@
                         <p class="m-0px font-w-600">@Html.DisplayNameFor(model => model.Duration)</p>
                     </div>
                 </div>
+                @*I could not find any other way to do this so i did it this way.*@
+                @{
+                    var data = Model.TotalDataUsage;
+                    var dataString = "";
+                    @if (data / 1000000.0M > 1.0M)
+                    {
+                        dataString = $"{data / 1000000:F1} Gb";
+                    }
+                    else if (data / 1000.0M > 1.0M)
+                    {
+                        dataString = $"{data / 1000:F1} Mb";
+                    }
+                    else
+                    {
+                        dataString = $"{data:F1} Kb";
+                    }
+                }
                 <div class="col-6 col-lg-3">
                     <div class="count-data text-center">
-                        <h6 class="count h2" data-to="150" data-speed="150">@Html.DisplayFor(model => model.TotalDataUsage)</h6>
+                        <h6 class="count h2" data-to="150" data-speed="150">@dataString</h6>
                         <p class="m-0px font-w-600">@Html.DisplayNameFor(model => model.TotalDataUsage)</p>
                     </div>
                 </div>
+                @{
+                    var memory = Model.AvgMemoryUsage;
+                    var memoryString = "";
+                    @if (memory / 1000000.0M > 1.0M)
+                    {
+                        memoryString = $"{memory / 1000000:F1} Gb";
+                    }
+                    else if (memory / 1000.0M > 1.0M)
+                    {
+                        memoryString = $"{memory / 1000:F1} Mb";
+                    }
+                    else
+                    {
+                        memoryString = $"{memory:F1} Kb";
+                    }
+                }
                 <div class="col-6 col-lg-3">
                     <div class="count-data text-center">
-                        <h6 class="count h2" data-to="850" data-speed="850">@Html.DisplayFor(model => model.AvgMemoryUsage)</h6>
+                        <h6 class="count h2" data-to="850" data-speed="850">@memoryString</h6>
                         <p class="m-0px font-w-600">@Html.DisplayNameFor(model => model.AvgMemoryUsage)</p>
                     </div>
                 </div>

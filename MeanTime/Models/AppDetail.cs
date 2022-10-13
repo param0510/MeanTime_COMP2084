@@ -27,10 +27,12 @@ namespace MeanTime.Models
         public double Duration { get; set; }
 
         [Range(0, 999999999999, ErrorMessage = "The data usage must lie in the range of [0,999999999999] Kilobytes")]
+        [DisplayName("Total Data Usage")]
         [DisplayFormat(DataFormatString = "{0:F0} Kb")]
         public decimal TotalDataUsage { get; set; }
 
         [Range(0, 9999999, ErrorMessage = "The average RAM usage must lie in the range of [0,9999999] Kilobytes")]
+        [DisplayName("Average Memory Usage")]
         [DisplayFormat(DataFormatString = "{0:F0} Kb")]
         public decimal AvgMemoryUsage { get; set; }
 

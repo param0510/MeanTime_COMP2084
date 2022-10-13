@@ -75,7 +75,7 @@
             <div class=" col-10 text-center">
                 <h3>Background Specs</h3>
                 <div class="card">
-                    <h5 class="text-center mb-4">App Info </h5>
+                    <h5 class="text-center headtag mb-4">App Info </h5>
                     <form class="form-card" asp-action="Create">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
@@ -156,6 +156,15 @@
                             </div>
                         </div>
                         <div class="row justify-content-end">
+
+                        @*    <div class="form-group col-sm-10 d-flex flex-row ">
+                                <button class="btn-block btn-outline-danger mt-2 mr-2">
+                                    <a asp-action="Index" asp-controller="Apps" class="text-decoration-none cancel">Cancel</a>
+                                </button>
+                                <button type="submit" value="Create" class="btn-block btn-success">Add App</button>
+                            </div>*@
+
+
                             <div class="form-group col-sm-6"> 
                                 <button value="Create" value type="submit" class="btn-block btn-primary">Add App</button> 
                             </div>

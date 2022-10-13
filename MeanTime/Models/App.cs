@@ -28,6 +28,7 @@ namespace MeanTime.Models
 
         [MinLength(3, ErrorMessage ="Too short for a meta tag, try making it more than 3 characters in length")]
         [MaxLength(25, ErrorMessage ="Too long for a meta tag, keep it less than 25 characters")]
+        [Display(Name ="Meta Tag")]
         public string? MetaTag { get; set; }
 
         [Range(0,5,ErrorMessage ="App rating must be in the range of [0,5] stars")]

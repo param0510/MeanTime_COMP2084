@@ -22,7 +22,7 @@ namespace MeanTime.Controllers
         // GET: Apps
         public async Task<IActionResult> Index(string genre)
         {
-            var applicationDbContext = _context.Apps.Include(a => a.Genre);
+            var applicationDbContext = _context.Apps.Include(a => a.Genre).OrderBy(m => m.Name);
 
             if (string.IsNullOrEmpty(genre))
             {

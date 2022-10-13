@@ -6,10 +6,15 @@
     ViewData["Title"] = "Apps";
 }
 
-<h1 class=" text-white">Apps Catalogue</h1>
+<h1 class="headtag">Apps Catalogue</h1>
 
 <p>
-    <a asp-action="Create" class="text-secondary rounded-pill border-primary border-1">Add a new App</a>
+    <a asp-action="Create" class="text-secondary  text-decoration-none text-lg-center">App 
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+          <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+        </svg>
+        </a>
 </p>
 @*<table class="table">
     <thead>
@@ -155,11 +160,6 @@
                                 }
                             }
 
-@*                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-o"></i>*@
                         </span>
                     </div>
                     <div class="align-self-top ">
@@ -167,7 +167,22 @@
                     </div>
                 </div>
 
-                    <h6>@Html.DisplayFor(modelItem => item.Size)</h6>
+                    @{
+                        var size = item.Size;
+                        var sizeString = "";
+                        @if (size / 1000000.0M > 1.0M)
+                        {
+                            sizeString = $"{size / 1000000:F1} Gb";
+                        }
+                        else if (size / 1000.0M > 1.0M)
+                        {
+                            sizeString = $"{size / 1000:F1} Mb";
+                        }
+                        else{
+                            sizeString = $"{size:F1} Kb";
+                        }
+                    }
+                    <h6>@sizeString</h6>
 
                 <div class="d-flex justify-content-between install mt-3">
                     <!-- <span>Installed </span> -->

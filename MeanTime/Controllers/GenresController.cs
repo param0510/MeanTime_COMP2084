@@ -22,7 +22,7 @@ namespace MeanTime.Controllers
         // GET: Genres
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Genres.ToListAsync());
+              return View(await _context.Genres.OrderBy(m => m.Type).ToListAsync());
         }
 
         // GET: Genres/Details/5

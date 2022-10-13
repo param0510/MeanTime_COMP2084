@@ -19,6 +19,7 @@ body {
 
 .thumb{
     width: 150px;
+    border-radius: 10px;
     /*height: 170px;*/
 }
 .renderBody {
@@ -43,8 +44,20 @@ body {
 }
 
 .site-background {
-    /*background-color: #1d2731;*/
-    background-color: #6dc6c0cc;
+    /*background-color: #6dc6c0cc;*/
+    background-color: #c6d7ae54;
+    font-family: 'Josefin Sans', sans-serif;
+    /*color: #838b91;*/
 }
 /*Css for genre view*/
+
+.headtag {
+    color: #838b91 !important;
+}
+.addtag{
+    font-size:
+}
+.cancel {
+    color: inherit!important;
+}
 
