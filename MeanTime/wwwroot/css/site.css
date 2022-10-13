@@ -1,5 +1,5 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
@@ -14,14 +14,15 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
 
 .thumb{
     width: 150px;
     /*height: 170px;*/
 }
-.renderBody{
+.renderBody {
+    margin-top: 20px;
     min-height: 80vh;
 }
 /* Default height for small devices */
@@ -41,5 +42,9 @@ body {
     background-repeat: no-repeat;
 }
 
+.site-background {
+    /*background-color: #1d2731;*/
+    background-color: #6dc6c0cc;
+}
 /*Css for genre view*/
 

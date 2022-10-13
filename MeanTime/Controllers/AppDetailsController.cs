@@ -118,7 +118,8 @@ namespace MeanTime.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                //I sent a parameter in the RedirectToAction method so that users could view the updated page
+                return RedirectToAction("Details","AppDetails", new { @id = id });
             }
             ViewData["AppId"] = new SelectList(_context.Apps, "AppId", "Name", appDetail.AppId);
             return View(appDetail);

@@ -1,10 +1,12 @@
-﻿@model MeanTime.Models.AppDetail
+﻿@*form template link: https://bbbootstrap.com/snippets/request-demo-form-validation-12274818*@
+
+@model MeanTime.Models.AppDetail
 
 @{
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+@*<h1>Create</h1>
 
 <h4>AppDetail</h4>
 <hr />
@@ -66,7 +68,103 @@
 
 <div>
     <a asp-action="Index">Back to List</a>
-</div>
+</div>*@
+
+<div class="container-fluid px-1 py-5 mx-auto">
+        <div class="row d-flex justify-content-center">
+            <div class=" col-10 text-center">
+                <h3>Background Specs</h3>
+                <div class="card">
+                    <h5 class="text-center mb-4">App Info </h5>
+                    <form class="form-card" asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="row justify-content-between text-left mb-4">
+
+                            <div class="form-group col-sm-6 flex-column d-flex">
+                                <label asp-for="Owner" class="form-control-label px-3">Owner</label>
+                                <input asp-for="Owner" type="text" placeholder="Owner name">
+                                <span asp-validation-for="Owner" class="text-danger"></span>
+
+                            </div>
+                            @*Advanced ASP.NET feature of 1-1 link between model classes App and AppDetails which act in 
+                                unison for crud operations*@
+                            <select asp-for="AppId" class="form-control" asp-items="ViewBag.AppId" hidden></select>
+                        </div>
+                        <div class="row justify-content-between text-left mb-4">
+                            <div class="form-group col-sm-6 flex-column d-flex">
+                                <label asp-for="Mode" class="form-control-label px-3">Mode</label>
+                                @*<input asp-for="Mode" type="text" placeholder="Online/Offline">*@
+
+                                <select asp-for="Mode" class="custom-select">
+                                    <option value="Online">Online</option>
+                                    <option value="Offline">Offline</option>
+                                    <option value="Online/Offline">Online/Offline</option>
+                                </select>
+
+                                @*<span asp-validation-for="Mode" class="text-danger"></span>*@
+
+                            </div>
+
+                            <div class="form-group col-sm-6 flex-column d-flex">
+                                <label asp-for="Duration" class="form-control-label px-3">Duration</label>
+                                <input asp-for="Duration" type="text" placeholder="in mins">
+                                <span asp-validation-for="Duration" class="text-danger"></span>
+
+                                
+                            </div>
+                        </div>
+                        <div class="row justify-content-between text-left mb-4">
+                            <div class="form-group col-sm-6 flex-column d-flex">
+                                <label asp-for="TotalDataUsage" class="form-control-label px-3">Data Usage</label>
+                                <input asp-for="TotalDataUsage" type="text" placeholder="in kb">
+                            <span asp-validation-for="TotalDataUsage" class="text-danger"></span>
+
+                            </div>
+
+                            <div class="form-group col-sm-6 flex-column d-flex">
+                                <label asp-for="AvgMemoryUsage" class="form-control-label px-3">Memory Usage</label>
+                                <input asp-for="AvgMemoryUsage" type="text" placeholder="in kb">
+                            <span asp-validation-for="AvgMemoryUsage" class="text-danger"></span>
+
+
+                                
+                            </div>
+                        </div>
+                        <div class="row justify-content-between text-left mb-4">
+                            <div class="form-group col-sm-6 flex-column d-flex">
+                                <label asp-for="Downloads" class="form-control-label px-3">Downloads</label>
+                                <input asp-for="Downloads" type="text" placeholder="Number of downloads">
+                            <span asp-validation-for="Downloads" class="text-danger"></span>
+
+                            </div>
+
+                            <div class="form-group col-sm-6 flex-column d-flex">
+                                <label asp-for="InstallDate" class="form-control-label px-3">Install Date</label>
+                                <input asp-for="InstallDate" type="date" >
+                            <span asp-validation-for="InstallDate" class="text-danger"></span>
+
+
+                            </div>
+                        </div>
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-12 flex-column d-flex"> 
+                                <label asp-for="Description" class="form-control-label px-3">Description</label>
+                                <textarea asp-for="Description" rows="4" placeholder="App Description" ></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+
+                            </div>
+                        </div>
+                        <div class="row justify-content-end">
+                            <div class="form-group col-sm-6"> 
+                                <button value="Create" value type="submit" class="btn-block btn-primary">Submit/Create/Save Changes</button> 
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

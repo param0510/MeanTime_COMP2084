@@ -1,14 +1,17 @@
-﻿@model MeanTime.Models.Genre
+﻿@*form template link: https://bbbootstrap.com/snippets/request-demo-form-validation-12274818*@
+
+
+@model MeanTime.Models.Genre
 
 @{
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+@*<h1>Create</h1>
 
 <h4>Genre</h4>
-<hr />
-<div class="row">
+<hr />*@
+@*<div class="row">
     <div class="col-md-4">
         <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -32,10 +35,53 @@
             </div>
         </form>
     </div>
-</div>
-
+</div>*@
+@*
 <div>
     <a asp-action="Index">Back to List</a>
+</div>*@
+
+
+<div class="container-fluid px-1 py-5 mx-auto">
+        <div class="row d-flex justify-content-center">
+            <div class=" col-9 text-center">
+                <h1 class="text-white">Enter the specifics</h1>
+                <!-- <p class="blue-text">Just answer a few questions<br> so that we can personalize the right experience for
+                    you.</p> -->
+                <div class="card">
+                    <h5 class="text-center mb-4">Genre</h5>
+                    <form asp-action="Create" enctype="multipart/form-data" class="form-card">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="row justify-content-between text-left mb-4">
+                            <div class="form-group col-sm-6 flex-column d-flex">
+                                <label asp-for="Type" class="form-control-label px-3"></label>
+                                <input asp-for="Type" type="text" placeholder="Enter Genre Type">
+                                <span asp-validation-for="Type" class="text-danger"></span>
+
+                            </div>
+
+                            <div class="form-group col-6 flex-column d-flex">
+                                <label asp-for="Logo" class="form-control-label px-3"></label>
+                                <input asp-for="Logo" type="file" class="form-control">
+                                <span asp-validation-for="Logo" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row justify-content-between text-left">
+                            <div class="form-group col-12 flex-column d-flex">
+                                <label asp-for="MetaDescription" class="form-control-label px-3"></label>
+                                <input asp-for="MetaDescription" type="text" placeholder="Meta Description">
+                                <span asp-validation-for="MetaDescription" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row justify-content-end">
+                            <div class="form-group col-sm-6">
+                                <button type="submit" value="Create" class="btn-block btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 @section Scripts {

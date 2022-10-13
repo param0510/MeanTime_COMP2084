@@ -6,10 +6,10 @@
     ViewData["Title"] = "Apps";
 }
 
-<h1 class="mt-3">Apps Catalogue</h1>
+<h1 class=" text-white">Apps Catalogue</h1>
 
 <p>
-    <a asp-action="Create" class="text-secondary rounded-pill border-primary border-1">Create New</a>
+    <a asp-action="Create" class="text-secondary rounded-pill border-primary border-1">Add a new App</a>
 </p>
 @*<table class="table">
     <thead>
@@ -94,7 +94,7 @@
     {
 
         <div class="col-md-4">
-            <div class="card p-3">
+            <div class="card p-3 my-4">
 
                 <div class="d-flex flex-row mb-3">
                         <a asp-controller="AppDetails" asp-action="Details" asp-route-id="@item.AppId">

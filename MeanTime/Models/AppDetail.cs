@@ -15,8 +15,7 @@ namespace MeanTime.Models
         [Required]
         public string? Owner { get; set; }
 
-        [MinLength(2, ErrorMessage = "Mode must be more than 2 characters in length")]
-        [MaxLength(20, ErrorMessage = "Mode has to be less than 20 characters")]
+
         public string? Mode { get; set; }
 
         [MinLength(10, ErrorMessage = "Too short description for the app, keep it more than 10 characters")]
