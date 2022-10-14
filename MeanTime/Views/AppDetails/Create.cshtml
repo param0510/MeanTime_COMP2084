@@ -6,71 +6,8 @@
     ViewData["Title"] = "Create";
 }
 
-@*<h1>Create</h1>
 
-<h4>AppDetail</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <!--Hide this when creating an app detail later-->
-            <div class="form-group" >
-                <label asp-for="AppId" class="control-label" ></label>
-                <select asp-for="AppId" class ="form-control" asp-items="ViewBag.AppId" set ></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="Owner" class="control-label"></label>
-                <input asp-for="Owner" class="form-control" />
-                <span asp-validation-for="Owner" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Mode" class="control-label"></label>
-                <input asp-for="Mode" class="form-control" />
-                <span asp-validation-for="Mode" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Duration" class="control-label"></label>
-                <input asp-for="Duration" class="form-control" />
-                <span asp-validation-for="Duration" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TotalDataUsage" class="control-label"></label>
-                <input asp-for="TotalDataUsage" class="form-control" />
-                <span asp-validation-for="TotalDataUsage" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AvgMemoryUsage" class="control-label"></label>
-                <input asp-for="AvgMemoryUsage" class="form-control" />
-                <span asp-validation-for="AvgMemoryUsage" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Downloads" class="control-label"></label>
-                <input asp-for="Downloads" class="form-control" />
-                <span asp-validation-for="Downloads" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="InstallDate" class="control-label"></label>
-                <input asp-for="InstallDate" type="date" class="form-control" />
-                <span asp-validation-for="InstallDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>*@
-
-<div class="container-fluid px-1 py-5 mx-auto">
+<div class="container-fluid px-1 py-5 mx-auto container" >
         <div class="row d-flex justify-content-center">
             <div class=" col-10 text-center">
                 <h3>Background Specs</h3>
@@ -87,23 +24,18 @@
                                 <span asp-validation-for="Owner" class="text-danger"></span>
 
                             </div>
-                            @*Advanced ASP.NET feature of 1-1 link between model classes App and AppDetails which act in 
-                                unison for crud operations*@
+                            @*Advanced ASP.NET feature of 1-1 link between model classes App and AppDetails which act in unison for crud operations*@
                             <select asp-for="AppId" class="form-control" asp-items="ViewBag.AppId" hidden></select>
                         </div>
                         <div class="row justify-content-between text-left mb-4">
                             <div class="form-group col-sm-6 flex-column d-flex">
                                 <label asp-for="Mode" class="form-control-label px-3">Mode</label>
-                                @*<input asp-for="Mode" type="text" placeholder="Online/Offline">*@
 
                                 <select asp-for="Mode" class="custom-select">
                                     <option value="Online">Online</option>
                                     <option value="Offline">Offline</option>
                                     <option value="Online/Offline">Online/Offline</option>
                                 </select>
-
-                                @*<span asp-validation-for="Mode" class="text-danger"></span>*@
-
                             </div>
 
                             <div class="form-group col-sm-6 flex-column d-flex">

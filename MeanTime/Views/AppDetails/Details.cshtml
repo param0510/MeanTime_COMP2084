@@ -3,91 +3,14 @@
 @model MeanTime.Models.AppDetail
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "App Info";
 }
 
-<h1 class="headtag">Details</h1>
-
-
-@*<div>
-    <h4>AppDetail</h4>
-    <hr />
-    <dl class="row">*@
-
-        @*Trial wanted to check whether it can do it or not*@
-
-      @*  <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.App.Price)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.App.Price)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.App)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.App.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Owner)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Owner)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Mode)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Mode)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Duration)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Duration)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TotalDataUsage)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TotalDataUsage)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AvgMemoryUsage)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AvgMemoryUsage)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Downloads)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Downloads)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.InstallDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.InstallDate)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.AppId">Edit</a> |
-    <a asp-action="Index" asp-controller="Apps">Back to Apps</a>
-</div>
-*@
+<h1 class="headtag">Background Details</h1>
 
 <div class="container">
     <div class="main-body">
 
-        <!-- Check the use of this once -->
         <!-- Breadcrumb -->
         <nav aria-label="breadcrumb" class="main-breadcrumb">
             <ol class="breadcrumb">
@@ -114,7 +37,6 @@
                             <div class="mt-3">
                                 <h4>@Html.DisplayFor(model => model.App.Name)</h4>
                                 <p class="text-secondary mb-3">@Html.DisplayFor(model => model.App.MetaTag)</p>
-                                @*<p class="text-muted font-size-sm">@Html.DisplayFor(model => model.App.GenreId.)</p>*@
                                 <p class="text-muted font-size-sm">@Html.DisplayFor(model => model.Description)</p>
                                     <a asp-controller="Apps" asp-action="Edit" asp-route-id=@Model.AppId class="btn btn-outline-secondary m-2">Install/Uninstall</a>
                                     <a asp-controller="Apps" asp-action="Delete" asp-route-id=@Model.AppId class="btn btn-outline-danger m-2">Delete App</a>
@@ -152,6 +74,17 @@
                             </div>
                         </div>
                         <hr>
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0 font-weight-bold">@Html.DisplayNameFor(model => model.Owner)</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                @Html.DisplayFor(model => model.Owner)
+                            </div>
+                        </div>
+                        <hr>
+
                         <div class="row">
                             <div class="col-sm-3">
                                 <h6 class="mb-0 font-weight-bold">@Html.DisplayNameFor(model => model.App.Size)</h6>
@@ -187,11 +120,7 @@
                                 @Html.DisplayFor(model => model.InstallDate)
                             </div>
                         </div>
-                        @*<hr>*@
-
-
                         <hr>
-
                         <div class="row">
                             <div class="col-sm-12">
                                 <a class="btn btn-info " asp-action="Edit" asp-route-id=@Model.AppId>Edit</a>

@@ -9,89 +9,14 @@
 <h1 class="headtag">Apps Catalogue</h1>
 
 <p>
-    <a asp-action="Create" class="text-secondary  text-decoration-none text-lg-center">App 
+    <a asp-action="Create" class="text-secondary  text-decoration-none text-lg-center addtag">App 
+        @*Took this from the bootstrap icons - https://icons.getbootstrap.com/icons/plus-circle/*@
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
           <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
           <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
         </svg>
         </a>
 </p>
-@*<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Image)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Size)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MetaTag)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Rating)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Genre)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                <a asp-controller="AppDetails" asp-action="Details" asp-route-id=@item.AppId>@Html.DisplayFor(modelItem => item.Name)</a>
-            </td>
-            <td>
-                @if(item.Image != null)
-                {
-                    <img src="~/img/@item.Image" alt="App Image" class="thumb" >
-                }
-                else
-                {
-                        <img src="~/img/placeholder.png" alt="App Image" class="thumb">
-
-                }*@
-                @*@Html.DisplayFor(modelItem => item.Image)*@
-          @*  </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Size)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MetaTag)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rating)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Genre.Type)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.AppId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.AppId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.AppId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
-*@
 
 <div class="container mt-3 mb-5">
     <div class="row">

@@ -20,15 +20,24 @@ body {
 .thumb{
     width: 150px;
     border-radius: 10px;
-    /*height: 170px;*/
 }
 .renderBody {
-    margin-top: 20px;
-    min-height: 80vh;
+    padding: 30px;
+    min-height: 82vh;
+}
+
+nav {
+    font-size: 18px;
 }
 /* Default height for small devices */
 #intro-example {
     height: 400px;
+    /*Background image source - https://www.pexels.com/search/website%20background/*/
+    background-image: url('https://images.pexels.com/photos/747964/pexels-photo-747964.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    border-radius: 10px;
 }
 
 /* Height for devices larger than 992px */
@@ -44,20 +53,25 @@ body {
 }
 
 .site-background {
-    /*background-color: #6dc6c0cc;*/
     background-color: #c6d7ae54;
     font-family: 'Josefin Sans', sans-serif;
-    /*color: #838b91;*/
 }
-/*Css for genre view*/
+
 
 .headtag {
     color: #838b91 !important;
 }
 .addtag{
-    font-size:
+    font-size: 20px;
 }
 .cancel {
-    color: inherit!important;
+    color: inherit !important;
 }
 
+
+.mask {
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 100%;
+    border-radius: 40px;
+    padding: 20px;
+}

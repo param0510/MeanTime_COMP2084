@@ -9,7 +9,8 @@
 <h1 class="headtag">Popular Topics</h1>
 
 <p>
-    <a asp-action="Create" class="text-secondary border-1 text-decoration-none">
+    <a asp-action="Create" class="text-secondary border-1 text-decoration-none addtag">
+        @*Took this icon from Bootstrpa - https://icons.getbootstrap.com/icons/plus-circle/ *@
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
             <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
@@ -17,53 +18,9 @@
         Contribute
     </a>
 </p>
-@*<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Type)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Logo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MetaDescription)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                    <a asp-controller="Apps" asp-action="Index" asp-route-genre=@item.Type>@Html.DisplayFor(modelItem => item.Type)</a>
-            </td>
-            <td>
-                @if(item.Logo != null)
-                {
-                    <img src="~/img/@item.Logo" alt="Genre logo" class="thumb"/>
-                }
-                else
-                {
-                    <img src="~/img/placeholder.png" alt="Placeholder image" class="thumb"/>
-                }
-                *@
-                @*@Html.DisplayFor(modelItem => item.Logo)*@
-          @*</td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MetaDescription)
-            </td>
-            
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.GenreId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.GenreId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.GenreId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
-*@
+
+<div class="container">
+
 <div class="d-flex flex-column align-items-center justify-content-center">
 
 @foreach(var item in Model)

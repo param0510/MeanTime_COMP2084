@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿/**
+This model is a child table of genres model and has a 1-1 relation with AppDetail model with App being the independent side
+ */
+
+using Microsoft.AspNetCore.Authentication;
 using System.ComponentModel.DataAnnotations;
 using System.Drawing;
 
@@ -39,9 +43,10 @@ namespace MeanTime.Models
 
         public int GenreId { get; set; }    
 
-        // Ref to parent table
+        // Reference to parent, table Many-1 relation with Genre Model
         public Genre? Genre { get; set; }
-        // Ref to 1-1 table
+
+        // Reference to 1-1 table, -> Advanced .NET functionality.
         public virtual AppDetail? AppDetail { get; set; }
     }
 }

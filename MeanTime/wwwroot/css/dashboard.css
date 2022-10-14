@@ -29,7 +29,7 @@
 
 
 /* DEMO 1 ============================== */
-.hover-1 img {
+/*.hover-1 img {
     width: 105%;
     position: absolute;
     top: 0;
@@ -70,11 +70,11 @@
 
 .hover-1:hover .hover-overlay {
     opacity: 0;
-}
+}*/
 
 
 /* DEMO 2 ============================== */
-.hover-2 .hover-overlay {
+/*.hover-2 .hover-overlay {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1));
 }
 
@@ -111,7 +111,7 @@
 .hover-2:hover .hover-overlay {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.1));
 }
-
+*/
 
 /* DEMO 3 ============================== */
 .hover-3::after {
@@ -177,7 +177,7 @@
 
 
 /* DEMO 4 ============================== */
-.hover-4 img {
+/*.hover-4 img {
     width: 110%;
     top: 50%;
     left: 50%;
@@ -233,10 +233,10 @@
 .hover-4:hover .hover-overlay {
     background: rgba(0, 0, 0, 0.8);
 }
-
+*/
 
 /* DEMO 5 ============================== */
-.hover-5::after {
+/*.hover-5::after {
     content: '';
     width: 100%;
     height: 10px;
@@ -283,7 +283,7 @@
 .hover-5:hover::after {
     bottom: 0;
 }
-
+*/
 /*
 *
 * ==========================================

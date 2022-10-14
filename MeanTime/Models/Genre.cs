@@ -19,7 +19,7 @@ namespace MeanTime.Models
 
         public string? Logo { get; set; }
 
-        // Ref to child table
+        // Reference to the child table Apps, with a 1-Many relation
         public List<App>? Apps { get; set; }
 
     }

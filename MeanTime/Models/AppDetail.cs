@@ -1,4 +1,7 @@
-﻿using System.ComponentModel;
+﻿/**
+This model has a 1-1 relation with App model with AppDetail being the dependent side
+ */
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -6,7 +9,7 @@ namespace MeanTime.Models
 {
     public class AppDetail
     {
-        //[ForeignKey("AppId")] 
+        // Foreign Key 
         [Key]
         public int AppId { get; set; }
 
@@ -14,7 +17,6 @@ namespace MeanTime.Models
         [MaxLength(30, ErrorMessage = "Owner name has to be less than 30 characters")]
         [Required]
         public string? Owner { get; set; }
-
 
         public string? Mode { get; set; }
 
@@ -43,7 +45,7 @@ namespace MeanTime.Models
 
         public DateTime InstallDate { get; set; }
 
-        // Ref to 1-1 table
+        // Reference to 1-1 table, this is one Advanced .NET functionality that I have added based upon independent learning
         public virtual App? App { get; set; }
     }
 }

@@ -10,6 +10,7 @@ namespace MeanTime.Data
             : base(options)
         {
         }
+        // Database set objects required to activate .NET CRUD operations
         public DbSet<App>? Apps { get; set; }
         public DbSet<Genre>? Genres { get; set; }
         public DbSet<AppDetail>? AppDetails { get; set; }

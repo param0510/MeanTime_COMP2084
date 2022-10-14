@@ -1,8 +1,11 @@
-﻿namespace MeanTime.Data
+﻿/**
+ This is a server utility class which is being shared among the controller to upload an image to the server
+ */
+
+namespace MeanTime.Data
 {
     public class UtilityClass
     {
-        // Copy it to the other controller it will not work for other controller due to location problem
         public static string UploadImage(IFormFile Image)
         {
             // Get the location of temp file upload
