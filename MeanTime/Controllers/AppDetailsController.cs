@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MeanTime.Data;
 using MeanTime.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Diagnostics.CodeAnalysis;
 
 namespace MeanTime.Controllers
 {
+    [Authorize]
     public class AppDetailsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -22,10 +25,11 @@ namespace MeanTime.Controllers
         // GET: AppDetails
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.AppDetails.Include(a => a.App);
+            var applicationDbContext = _context.AppDetails.Include(a => a.App).OrderBy(a => a.App.Name);
             return View(await applicationDbContext.ToListAsync());
         }
 
+        [AllowAnonymous]
         // GET: AppDetails/Details/5
         public async Task<IActionResult> Details(int? id)
         {

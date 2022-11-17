@@ -38,8 +38,11 @@
                                 <h4>@Html.DisplayFor(model => model.App.Name)</h4>
                                 <p class="text-secondary mb-3">@Html.DisplayFor(model => model.App.MetaTag)</p>
                                 <p class="text-muted font-size-sm">@Html.DisplayFor(model => model.Description)</p>
+                                @if(User.Identity.IsAuthenticated)
+                                {
                                     <a asp-controller="Apps" asp-action="Edit" asp-route-id=@Model.AppId class="btn btn-outline-secondary m-2">Install/Uninstall</a>
                                     <a asp-controller="Apps" asp-action="Delete" asp-route-id=@Model.AppId class="btn btn-outline-danger m-2">Delete App</a>
+                                }
                             </div>
                         </div>
                     </div>
@@ -123,7 +126,10 @@
                         <hr>
                         <div class="row">
                             <div class="col-sm-12">
-                                <a class="btn btn-info " asp-action="Edit" asp-route-id=@Model.AppId>Edit</a>
+                                @if(User.Identity.IsAuthenticated)
+                                {
+                                    <a class="btn btn-info " asp-action="Edit" asp-route-id=@Model.AppId>Edit</a>
+                                }
                                 <a class="btn btn-outline-info " asp-controller="Apps" asp-action="Index">Back to Apps</a>
                             </div>
                         </div>

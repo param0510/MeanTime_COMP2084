@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MeanTime.Data;
 using MeanTime.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MeanTime.Controllers
 {
+    [Authorize]
     public class GenresController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -19,11 +21,15 @@ namespace MeanTime.Controllers
             _context = context;
         }
 
+        [AllowAnonymous]
         // GET: Genres
         public async Task<IActionResult> Index()
         {
               return View(await _context.Genres.OrderBy(m => m.Type).ToListAsync());
         }
+
+        // Hide it ...
+
 
         // GET: Genres/Details/5
         public async Task<IActionResult> Details(int? id)

@@ -9,14 +9,17 @@
 <h1 class="headtag">Popular Topics</h1>
 
 <p>
-    <a asp-action="Create" class="text-secondary border-1 text-decoration-none addtag">
-        @*Took this icon from Bootstrpa - https://icons.getbootstrap.com/icons/plus-circle/ *@
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-        </svg>
-        Contribute
-    </a>
+    @if(User.Identity.IsAuthenticated)
+    {
+        <a asp-action="Create" class="text-secondary border-1 text-decoration-none addtag">
+            @*Took this icon from Bootstrpa - https://icons.getbootstrap.com/icons/plus-circle/ *@
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+            </svg>
+            Contribute
+        </a>
+    }
 </p>
 
 <div class="container">
@@ -49,11 +52,16 @@
                     <p class="card-text">
                         @Html.DisplayFor(modelItem => item.MetaDescription)
                     </p>
-                    <p class="card-text">
-                        <small class="text-muted">last updated recently</small>
-                    </p>
-                    <a asp-action="Edit" asp-route-id="@item.GenreId" class="btn btn-outline-info mx-2">Update</a>
-                    <a asp-action="Delete" asp-route-id="@item.GenreId" class="btn btn-outline-danger mx-2">Delete</a>
+                    
+                    @if(User.Identity.IsAuthenticated)
+                    {
+                        <p class="card-text">
+                            <small class="text-muted">last updated recently</small>
+                        </p>
+                        <a asp-action="Details" asp-route-id="@item.GenreId" class="btn btn-info mx-2">View Details</a>
+                        <a asp-action="Edit" asp-route-id="@item.GenreId" class="btn btn-outline-success mx-2">Update</a>
+                        <a asp-action="Delete" asp-route-id="@item.GenreId" class="btn btn-outline-danger mx-2">Delete</a>
+                    }
                 </div>
             </div>
         </div>

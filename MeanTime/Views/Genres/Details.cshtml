@@ -2,7 +2,7 @@
     This View is not required so I commented it, if need be in the future
 *@
 
-@*
+
 @model MeanTime.Models.Genre
 
 @{
@@ -31,12 +31,18 @@
             @Html.DisplayNameFor(model => model.Logo)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Logo)
+            @if (Model.Logo != null)
+            {
+                <img src="~/img/@Model.Logo" alt="Genre logo" class="thumb img-fluid rounded-start" style="max-height: 300px;" />
+            }
+            else
+            {
+                <span>No image added yet!</span>
+            }
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.GenreId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.GenreId" class="btn btn-outline-danger mx-2">Edit</a>
+    <a asp-action="Index" class="btn btn-outline-success mx-2">Back to List</a>
 </div>
-*@

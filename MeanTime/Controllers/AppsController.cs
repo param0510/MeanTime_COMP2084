@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MeanTime.Data;
 using MeanTime.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MeanTime.Controllers
 {
+    [Authorize]
     public class AppsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -19,6 +21,7 @@ namespace MeanTime.Controllers
             _context = context;
         }
 
+        [AllowAnonymous]
         // GET: Apps
         public async Task<IActionResult> Index(string genre)
         {

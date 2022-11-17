@@ -18,7 +18,7 @@ namespace MeanTime.Controllers
             return View();
         }
         
-        public IActionResult Dashboard()
+        public IActionResult Catalogue()
         {
             return View();
         }

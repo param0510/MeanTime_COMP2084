@@ -3,14 +3,12 @@
 @model IEnumerable<MeanTime.Models.AppDetail>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "App Profiles";
 }
 
-<h1>Index</h1>
+<h1>App Profiles</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
@@ -77,9 +75,9 @@
             </td>
             
             <td>
-                <a asp-action="Edit" asp-route-id="@item.AppId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.AppId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.AppId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.AppId" class="btn btn-warning m-1">Edit</a>
+                <a asp-controller="Apps" asp-action="Delete" asp-route-id="@item.AppId" class="btn btn-outline-danger m-1">Delete</a>
+                <a asp-action="Details" asp-route-id="@item.AppId" class="btn btn-outline-info m-1">Preview</a>
             </td>
         </tr>
 }
