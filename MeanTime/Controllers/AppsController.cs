@@ -152,7 +152,7 @@ namespace MeanTime.Controllers
         {
             if (id == null || _context.Apps == null)
             {
-                return NotFound();
+                return View("404");
             }
 
             var app = await _context.Apps
@@ -160,10 +160,10 @@ namespace MeanTime.Controllers
                 .FirstOrDefaultAsync(m => m.AppId == id);
             if (app == null)
             {
-                return NotFound();
+                return View("404");
             }
 
-            return View(app);
+            return View("Delete", app);
         }
 
         // POST: Apps/Delete/5
@@ -173,7 +173,8 @@ namespace MeanTime.Controllers
         {
             if (_context.Apps == null)
             {
-                return Problem("Entity set 'ApplicationDbContext.Apps'  is null.");
+                //return Problem("Entity set 'ApplicationDbContext.Apps'  is null.");
+                return View("Error");
             }
             var app = await _context.Apps.FindAsync(id);
             if (app != null)
